@@ -1,0 +1,40 @@
+package main
+
+import (
+	"flag"
+	"fmt"
+	"math"
+	"os"
+	"strconv"
+
+	"github.com/yuzuy/fizzbuzz"
+)
+
+func main() {
+	flag.Parse()
+
+	limitStr := flag.Arg(0)
+	if limitStr == "" {
+		limitStr = "100"
+	}
+	limit, err := strconv.Atoi(limitStr)
+	if err != nil {
+		fmt.Println("fizzbuzz: Please specify an integer for limit")
+		os.Exit(1)
+	}
+	if limit == 0 {
+		limit = math.MaxInt32
+	}
+
+	for i := 1; i <= limit; i++ {
+		fmt.Print(fizzbuzz.FizzBuzz(i) + " ")
+	}
+	fmt.Println()
+}
+
+func init() {
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s <limit>\n", os.Args[0])
+		fmt.Fprintf(flag.CommandLine.Output(), "  limit is set 100 by default. if set 0, set the max of int32\n")
+	}
+}
