@@ -17,16 +17,17 @@ func main() {
 	if limitStr == "" {
 		limitStr = "100"
 	}
-	limit, err := strconv.Atoi(limitStr)
+	limit, err := strconv.ParseInt(limitStr, 10, 64)
 	if err != nil {
 		fmt.Println("fizzbuzz: Please specify an integer for limit")
 		os.Exit(1)
 	}
 	if limit == 0 {
-		limit = math.MaxInt32
+		limit = math.MaxInt64
 	}
 
-	for i := 1; i <= limit; i++ {
+	var i int64 = 1
+	for ; i <= limit; i++ {
 		fmt.Print(fizzbuzz.FizzBuzz(i) + " ")
 	}
 	fmt.Println()
