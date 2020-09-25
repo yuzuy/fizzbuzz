@@ -10,5 +10,5 @@ go get -u github.com/yuzuy/fizzbuzz/cmd/fizzbuzz
 ```
 Usage: fizzbuzz <limit>
 
-  limit is set 100 by default. if set 0, set the max of int32
+  limit is set 100 by default. if set 0, set the max of int64
 ```
