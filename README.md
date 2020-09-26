@@ -1,5 +1,5 @@
 # fizzbuzz
-A toy CLI tool prints Fizz Buzz
+A toy command prints Fizz Buzz
 
 ## Installation
 ```
