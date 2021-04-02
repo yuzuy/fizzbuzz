@@ -26,12 +26,11 @@ func main() {
 		limit = math.MaxInt64
 	}
 
-	var result string
 	var i int64 = 1
 	for ; i <= limit; i++ {
-		result += fizzbuzz.FizzBuzz(i) + " "
+		fmt.Print(fizzbuzz.FizzBuzz(i) + " ")
 	}
-	fmt.Println(result)
+	fmt.Println()
 }
 
 func init() {
